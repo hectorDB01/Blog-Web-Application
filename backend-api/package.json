@@ -1,0 +1,42 @@
+{
+  "name": "block-web-application",
+  "version": "1.0.0",
+  "description": "web for blogger community",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -L ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/24-25Sem1-Courses/ct313h01-project-hectorDB01.git"
+  },
+  "author": "B2111971-Nguyen-Duy-Bang, B2111961-Phan-Thi-Bich-Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/24-25Sem1-Courses/ct313h01-project-hectorDB01/issues"
+  },
+  "homepage": "https://github.com/24-25Sem1-Courses/ct313h01-project-hectorDB01#readme",
+  "dependencies": {
+    "argon2": "^0.41.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "moment": "^2.30.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.3",
+    "swagger-doc": "^0.3.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
+  }
+}

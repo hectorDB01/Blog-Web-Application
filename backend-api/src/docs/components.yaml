@@ -1,0 +1,159 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          description: The user's unique identifier
+        first_name:
+          type: string
+          description: User's first name
+        last_name:
+          type: string
+          description: User's last name
+        username:
+          type: string
+          description: User's username, often used instead of user ID
+        email:
+          type: string
+          format: email
+          description: User's email address
+        password:
+          type: string
+          format: password
+          description: User's password
+        avatar:
+          type: string
+          readOnly: true
+          description: User's avatar file path
+        avatarFile:
+          type: string
+          format: binary
+          writeOnly: true
+          description: User's avatar file
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          description: title of category
+        description:
+          type: string
+          description: description of category
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          description: title of post
+        body:
+          type: string
+          description: content of post
+        date_time:
+          type: string
+          readOnly: true
+          description: date and time at creating post
+        is_featured:
+          type: integer
+          enum: [0, 1]
+          default: 0
+          description: favorite post
+        thumbnail:
+          type: string
+          readOnly: true
+          description: thumbnail post file path
+        thumbnailFile:
+          type: string
+          format: binary
+          writeOnly: true
+          description: thumbnail post file
+    loginInfo:
+      type: object
+      properties:
+        username:
+          type: string
+          description: username of user
+        password:
+          type: string
+          description: password of user
+    Token:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: token for accessing to protected page
+        refreshToken:
+          type: string
+          description: token for generating new accessToken
+    AccessToken:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: token for accessing to protected page
+    RefreshToken:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+          description: token for generating new accessToken
+
+  responses:
+    "200NoData":
+      description: No data available
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: The response status
+                enum:
+                  - success
+              data:
+                type: object
+                nullable: true
+                default: null
+                description: The response data
+    UnauthorizedError:
+      description: Access token is missing or invalid
+
+  parameters:
+    userIdParam:
+      name: id
+      description: User id
+      required: true
+      in: path
+      schema:
+        type: integer
+    categoryIdParam:
+      name: id
+      description: Category ID
+      required: true
+      in: path
+      schema:
+        type: integer
+    postIdParam:
+      name: id
+      description: Post ID
+      required: true
+      in: path
+      schema:
+        type: integer
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+security:
+  - bearerAuth: []
